@@ -1,0 +1,29 @@
+
+h1,
+p{
+    color: oldlace;
+}
+
+a{
+    color: rgb(39, 39, 88);
+}
+
+footer{
+    color: moccasin;
+}
+
+.navbar{
+    color: moccasin;
+}
+
+.jumbotron{
+    background-color: rgb(39, 39, 88);
+    justify-content: center;
+    margin-top: auto;
+}
+
+.container{
+    display: flex;
+    flex: 0 auto;
+    flex-direction: column;
+}
