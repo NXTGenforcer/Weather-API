@@ -1,29 +1,75 @@
-
-h1,
-p{
-    color: oldlace;
+html, body{
+    height: 100%; 
 }
 
-a{
-    color: rgb(39, 39, 88);
+body{
+    display: flex;
+  flex-direction: column;
+}
+
+header{
+    background: linear-gradient(to right, steelblue, rgb(187, 60, 60));
+    color: snow;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+img {
+    height: 4rem;
+    width: 4rem;
+}
+
+.content{
+    flex: 1 0 auto;
 }
 
 footer{
-    color: moccasin;
+    background: linear-gradient(to right, steelblue, rgb(187, 60, 60));
+    min-height: 5rem;
+    flex-shrink: 0;
 }
 
-.navbar{
-    color: moccasin;
+
+
+.btn{
+    background-color: steelblue;
+    color: snow;
+}
+
+.prevBtn{
+    background-color: snow;
+    color: black;
+    
 }
 
 .jumbotron{
-    background-color: rgb(39, 39, 88);
+    background: linear-gradient(to right, steelblue, rgb(187, 60, 60));
+    color: snow;
     justify-content: center;
     margin-top: auto;
 }
 
-.container{
+.col-mid-8{
+    float: inherit;
+}
+
+.forecast-cards{
     display: flex;
-    flex: 0 auto;
-    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 12rem;
+    min-width: 18%;
+    padding: 1rem;
+}
+
+.city-day{
+    min-height: 10rem;
+}
+
+.per-day{
+    background-color: slategrey;
+    color: snow;
+    min-height: 1rem;
 }
