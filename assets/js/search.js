@@ -7,25 +7,24 @@ var now = moment();
 var todayDate = now.format("YYYY-MM-DD");
 var fifthDay = now.add(6, "days").format("YYYY-MM-DD");
 var searchArray = JSON.parse(localStorage.getItem("search")) || [];
+var searchList = $(".prevCities");
 
 $(document).ready(function () {
   $(".searchcity").on("click", function (event) {
     event.preventDefault();
-    if (!searchArray.includes($(".form-control").val())) {
-      searchArray.push($(".form-control").val());
+    var search = $(".form-control").val();
+    if (!searchArray.includes(search)) {
+      searchArray.push(search);
     }
     localStorage.setItem("search", JSON.stringify(searchArray));
-    userSearch = JSON.parse(localStorage.getItem("search"));
     if (!$(".form-control").val()) {
       alert("Must input a city's name to continue");
     } else {
       clear();
-      render(userSearch);
+      render(search);
     }
   });
-  for (let i = 0; i < searchArray.length; i++) {
-    btnRender(searchArray[i]);
-  }
+  btnRender();
 });
 function render(search) {
   requestUrl = baseURL + search + "&appid=" + apiKey;
@@ -48,7 +47,6 @@ function render(search) {
           var humid = data.current.humidity;
           var UVI = data.current.uvi;
           var today = $(".daily");
-          var searchList = $(".prevCities");
           var fiveDay = $(".forecast-cards");
           var list = $(".list-group");
           var bigCard = `
@@ -78,19 +76,20 @@ function render(search) {
               fiveDay.append(card);
             }
           });
-          if (!searchArray.includes(search)) {
-            var prevSearch = btnRender(search);
-            searchList.append(prevSearch);
-          }
+          btnRender();
           today.append(bigCard);
         });
     });
 }
 
-function btnRender(search) {
-  return ` <div class="col">
-  <button class="btn prevBtn" type="submit" id="prevBtn" onclick="newSearch('${search}')">${search}</button>
-          </div>`;
+function btnRender() {
+  searchList.empty();
+  for (let i = 0; i < searchArray.length; i++) {
+    var prevSearch = ` <div class="col">
+    <button class="btn prevBtn" type="submit" id="prevBtn" onclick="newSearch('${searchArray[i]}')">${searchArray[i]}</button>
+            </div>`;
+    searchList.append(prevSearch);
+  }
 }
 
 function newSearch(city) {

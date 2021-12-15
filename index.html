@@ -20,37 +20,34 @@
         <h1>Weather-API</h1>
     </header>
     <div class="content">
-        <section class="jumbotron jumbotron-fluid custom-jumbotron ">
+        <section class="jumbotron jumbotron-fluid custom-jumbotron pb-3">
             <div class="container index">
                 <h1>
                     Welcome to the Weather API!
                 </h1>
-                <div class="mb-3">
+                <div class="">
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search for a city"
                             aria-label="Search">
                     </form>
                 </div>
-                <div class="container">
-                    <div class="row prevCities">
-                        <div class="col">
-                            <button class="btn searchcity my-2" type="submit">Search</button>
+                <div class="container mt-3">
+                    <div class="row">
+                        <div class="col-1">
+                            <button class="btn searchcity" type="submit">Search</button>
                         </div>
+                        <div class="col row prevCities"></div>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="weather-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                    </div>
+        <div class="container weather-content">
+            <div class="row">
+                <div class="col">
+                    <div class="daily"></div>
+                    <div class="forecast-cards"></div>
+                    <ul class="list-group list-group-flush"></ul>
                 </div>
-            </div>
-            <div class="col-md-8">
-                <div class="daily"></div>
-                <div class="forecast-cards"></div>
-                <ul class="list-group list-group-flush"></ul>
             </div>
         </div>
     </div>
